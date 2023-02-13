@@ -1,15 +1,19 @@
-This is my Module Assignment for Module 3 in the JavaScript 1 Course.
+# JS1MA3 - Erlend Johnsen
 
-The Assignment:
+## This is my Module Assignment for Module 3 in the JavaScript 1 Course.
 
-Question 1
+### The Assignment:
+
+## Question 1
+
 Convert the function below to an arrow function:
 
-function getRemainder(a,b) {
-return a % b;
-}
+> function getRemainder(a,b) {
+> return a % b;
+> }
 
-Question 2
+## Question 2
+
 Make a call to the Rawg API.
 
 Go to https://rawg.io/apidocs and get an API key which you’ll use as part of the endpoint you’re making an API call to. You can use https://noroff.no for the URL and Noroff Assignment for the description.
