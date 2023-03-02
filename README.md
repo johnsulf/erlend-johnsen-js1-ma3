@@ -4,7 +4,9 @@
 
 ### The Assignment:
 
-## Question 1
+Answers can be found in the two .js files in the js folder.
+
+#### Question 1
 
 Convert the function below to an arrow function:
 
@@ -12,7 +14,7 @@ Convert the function below to an arrow function:
 return a % b;
 }`
 
-## Question 2
+#### Question 2
 
 Make a call to the Rawg API.
 

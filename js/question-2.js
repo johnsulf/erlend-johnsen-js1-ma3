@@ -4,39 +4,39 @@ const API_URL = `https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&order
 const resultsContainer = document.querySelector(".results");
 const loader = document.querySelector(".loader");
 
-let html;
-
 async function getRawgData() {
   try {
-    const response = await fetch(API_URL);
-    const jsonResponse = await response.json();
-    const results = jsonResponse.results;
-
-    loader.style.display = "none";
+    const res = await fetch(API_URL);
+    const jsonRes = await res.json();
+    const results = jsonRes.results;
 
     for (let i = 0; i < results.length; i++) {
-      html = `<div class="game">
-                <h3 class="name">🕹 ${results[i].name}</h3>
-                <p class="rating">⭐ ${results[i].rating}</p>
-                <p class="tags">🏷 ${results[i].tags.length}</p>
-            </div>`;
-
-      resultsContainer.innerHTML += html;
+      resultsContainer.innerHTML += createHTML(
+        `<div class="game">
+          <h3 class="name">🕹 ${results[i].name}</h3>
+          <p class="rating">⭐ ${results[i].rating}</p>
+          <p class="tags">🏷 ${results[i].tags.length}</p>
+        </div>`
+      );
 
       if (i === 7) {
         break;
       }
     }
   } catch (error) {
+    resultsContainer.innerHTML = createHTML(
+      `<div class="error">
+        <h3 class="name">Oops! An error has occurd when fetching games.</h3>
+        <p>Error: ${error}</p>
+      </div>`
+    );
+  } finally {
     loader.style.display = "none";
-
-    html = `<div class="error">
-                <h3 class="name">Oops! An error has occurd when fetching games.</h3>
-                <p>Error: ${error}</p>
-            </div>`;
-
-    resultsContainer.innerHTML = html;
   }
+}
+
+function createHTML(html) {
+  return html;
 }
 
 getRawgData();
