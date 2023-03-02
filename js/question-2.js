@@ -13,13 +13,11 @@ async function getRawgData() {
     const results = jsonRes.results;
 
     for (let i = 0; i < results.length; i++) {
-      html = `<div class="game">
+      html += `<div class="game">
                 <h3 class="name">🕹 ${results[i].name}</h3>
                 <p class="rating">⭐ ${results[i].rating}</p>
                 <p class="tags">🏷 ${results[i].tags.length}</p>
               </div>`;
-
-      resultsContainer.innerHTML += html;
 
       if (i === 7) {
         break;
@@ -30,10 +28,9 @@ async function getRawgData() {
               <h3 class="name">Oops! An error has occurd when fetching games.</h3>
               <p>Error: ${error}</p>
             </div>`;
-
-    resultsContainer.innerHTML = html;
   } finally {
     loader.style.display = "none";
+    resultsContainer.innerHTML = html;
   }
 }
 
